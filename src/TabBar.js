@@ -435,9 +435,7 @@ export default class TabBar<T: *> extends React.Component<Props<T>, State> {
                 scrollEnabled === true;
               const tabContainerStyle = {};
 
-              if (isWidthSet) {
-                tabStyle.width = tabWidth;
-              }
+              tabStyle.width = tabWidth;
 
               if (passedTabStyle && typeof passedTabStyle.flex === 'number') {
                 tabContainerStyle.flex = passedTabStyle.flex;
