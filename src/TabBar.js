@@ -343,7 +343,7 @@ export default class TabBar<T: *> extends React.Component<Props<T>, State> {
     const translateX = Animated.multiply(this.state.scrollAmount, -1);
 
     return (
-      <Animated.View style={[styles.tabBar, this.props.style]}>
+      <Animated.View style={[styles.tabBar, this.props.style, this.props.layout.measured ? {} : { marginBottom: 1 }]}>
         <Animated.View
           pointerEvents="none"
           style={[
@@ -435,7 +435,9 @@ export default class TabBar<T: *> extends React.Component<Props<T>, State> {
                 scrollEnabled === true;
               const tabContainerStyle = {};
 
-              tabStyle.width = tabWidth;
+              if (isWidthSet) {
+                tabStyle.width = tabWidth;
+              }
 
               if (passedTabStyle && typeof passedTabStyle.flex === 'number') {
                 tabContainerStyle.flex = passedTabStyle.flex;
