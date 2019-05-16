@@ -55,6 +55,7 @@
     "react-test-renderer": "16.2.0"
   },
   "peerDependencies": {
+    "@react-native-community/viewpager": "*",
     "react": "*",
     "react-native": "*"
   },
