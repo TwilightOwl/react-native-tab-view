@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { View, StyleSheet, I18nManager } from 'react-native';
-import ViewPagerAndroid from "@react-native-community/viewpager";
+import ViewPager from "@react-native-community/viewpager";
 import { PagerRendererPropType } from './TabViewPropTypes';
 import type { PagerRendererProps } from './TabViewTypeDefinitions';
 
@@ -43,7 +43,7 @@ export default class TabViewPagerAndroid<T: *> extends React.Component<
   }
 
   _pageChangeCallabck: any;
-  _viewPager: ?ViewPagerAndroid;
+  _viewPager: ?ViewPager;
   _isIdle: boolean = true;
   _currentIndex = 0;
 
@@ -104,7 +104,7 @@ export default class TabViewPagerAndroid<T: *> extends React.Component<
     this._currentIndex = index;
   };
 
-  _setRef = (el: ?ViewPagerAndroid) => (this._viewPager = el);
+  _setRef = (el: ?ViewPager) => (this._viewPager = el);
 
   render() {
     const { children, navigationState, swipeEnabled } = this.props;
@@ -125,7 +125,7 @@ export default class TabViewPagerAndroid<T: *> extends React.Component<
     const initialPage = this._getPageIndex(navigationState.index);
 
     return (
-      <ViewPagerAndroid
+      <ViewPager
         key={navigationState.routes.length}
         keyboardDismissMode="on-drag"
         initialPage={initialPage}
@@ -137,7 +137,7 @@ export default class TabViewPagerAndroid<T: *> extends React.Component<
         ref={this._setRef}
       >
         {content}
-      </ViewPagerAndroid>
+      </ViewPager>
     );
   }
 }
